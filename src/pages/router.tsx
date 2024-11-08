@@ -16,6 +16,7 @@ import { ADMIN_PAGES } from '@/config/pages/admin.config'
 import OrdersPage from './Orders'
 import OrderHistory from './orders/OrderHistory'
 import { EquipmentFailures } from './EquipmentFailures/EquipmentFailures'
+import { QualityControlPage } from './QualityControl/QualityControl'
 
 
 export const router = createBrowserRouter([
@@ -74,6 +75,10 @@ export const router = createBrowserRouter([
 			{
 				path: ADMIN_PAGES.EQUIPMENT_FAILURES,
 				element: <EquipmentFailures />
+			},
+			{
+				path: `${ADMIN_PAGES.QUALITY_CONTROL}`,
+				element: <QualityControlPage />
 			}
 		]
 	},
