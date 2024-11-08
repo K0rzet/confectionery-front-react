@@ -15,6 +15,7 @@ import { TsekhDetail } from './tsekhi/TsekhDetail'
 import { ADMIN_PAGES } from '@/config/pages/admin.config'
 import OrdersPage from './Orders'
 import OrderHistory from './orders/OrderHistory'
+import { EquipmentFailures } from './EquipmentFailures/EquipmentFailures'
 
 
 export const router = createBrowserRouter([
@@ -65,6 +66,14 @@ export const router = createBrowserRouter([
 			{
 				path: `${ADMIN_PAGES.ORDERS}/:id/history`,
 				element: <OrderHistory />
+			},
+			{
+				path: ADMIN_PAGES.EQUIPMENT,
+				element: <EquipmentPage />
+			},
+			{
+				path: ADMIN_PAGES.EQUIPMENT_FAILURES,
+				element: <EquipmentFailures />
 			}
 		]
 	},

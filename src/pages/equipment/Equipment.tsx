@@ -1,15 +1,16 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import equipmentService from "@/services/equipment.service";
+import equipmentService from "@/services/equipments/equipment.service";
+import { IEquipment } from "@/types/equipment.types";
 
 export function EquipmentPage() {
-  const { data, isLoading, error } = useQuery({
+  const { data: equipment, isLoading, error } = useQuery<IEquipment[]>({
     queryKey: ["equipment"],
-    queryFn: () => equipmentService.fetchAll(),
+    queryFn: () => equipmentService.getEquipment({}),
   });
 
   if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>An error occurred: {error.message}</div>;
+  if (error) return <div>An error occurred: {(error as Error).message}</div>;
 
   return (
     <div>
@@ -17,17 +18,19 @@ export function EquipmentPage() {
       <table>
         <thead>
           <tr>
-            <th>Marking</th>
-            <th>Type</th>
-            <th>Characteristics</th>
+            <th>Название</th>
+            <th>Маркировка</th>
+            <th>Тип оборудования</th>
+            <th>Характеристики</th>
           </tr>
         </thead>
         <tbody>
-          {data?.data.map((equipment) => (
-            <tr key={equipment.id}>
-              <td>{equipment.marking}</td>
-              <td>{equipment.equipmentType.name}</td>
-              <td>{equipment.characteristics}</td>
+          {equipment?.map((item) => (
+            <tr key={item.id}>
+              <td>{item.nazvanie}</td>
+              <td>{item.markirovka}</td>
+              <td>{item.tipOborudovaniya?.nazvanie}</td>
+              <td>{item.kharakteristiki}</td>
             </tr>
           ))}
         </tbody>

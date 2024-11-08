@@ -30,7 +30,9 @@ export const ProtectedRoutes = () => {
 			case '/cake-decorations':
 				return user.isDIREKTOR || user.isMenedzerPoZakupkam || user.isMaster || user.isZakazchik
 			case '/equipment':
-				return user.isDIREKTOR
+				return user.isDIREKTOR || user.isMaster
+			case '/equipment/failures':
+				return user.isDIREKTOR || user.isMaster
 			default:
 				return true
 		}
