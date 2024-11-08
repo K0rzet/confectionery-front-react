@@ -1,0 +1,360 @@
+.container {
+  padding: 20px;
+}
+
+.filters {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+
+  button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #e0e0e0;
+    }
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  th,
+  td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+
+  th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+  }
+
+  tr:hover {
+    background-color: #f8f9fa;
+  }
+}
+
+.historyButton {
+  padding: 6px 12px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #5a6268;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+
+  button {
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.acceptButton {
+  background-color: #4caf50;
+  color: white;
+}
+
+.rejectButton {
+  background-color: #f44336;
+  color: white;
+}
+
+.cancelButton {
+  background-color: #ff9800;
+  color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.createButton {
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #45a049;
+  }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input,
+.textarea {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.sizes {
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 4px;
+
+  h4 {
+    margin: 0 0 12px 0;
+  }
+}
+
+.sizeRow {
+  position: relative;
+  margin-bottom: 1.5rem;
+
+  .inputWrapper {
+    position: relative;
+    flex: 1;
+
+    .errorMessage {
+      position: absolute;
+      bottom: -1.2rem;
+      left: 0;
+      font-size: 0.8rem;
+      color: #ff4444;
+    }
+  }
+
+  .input {
+    &.errorInput {
+      border-color: #ff4444;
+      
+      &:focus {
+        border-color: #ff4444;
+        box-shadow: 0 0 0 2px rgba(255, 68, 68, 0.2);
+      }
+    }
+  }
+}
+
+.submitButton {
+  padding: 12px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  .container {
+    padding: 20px;
+  }
+
+  .filters {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+
+    button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      background-color: #f0f0f0;
+      cursor: pointer;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: #e0e0e0;
+      }
+    }
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    th,
+    td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background-color: #f8f9fa;
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background-color: #f8f9fa;
+    }
+  }
+
+  .historyButton {
+    padding: 6px 12px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #5a6268;
+    }
+  }
+
+  .actions {
+    display: flex;
+    gap: 8px;
+
+    button {
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .acceptButton {
+    background-color: #4caf50;
+    color: white;
+  }
+
+  .rejectButton {
+    background-color: #f44336;
+    color: white;
+  }
+
+  .cancelButton {
+    background-color: #ff9800;
+    color: white;
+  }
+}
+
+.fileUpload {
+  margin-top: 16px;
+
+  h4 {
+    margin-bottom: 8px;
+  }
+}
+
+.fileInput {
+  width: 100%;
+  padding: 8px;
+  border: 1px dashed #ddd;
+  border-radius: 4px;
+}
+
+.sizes {
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 4px;
+  margin: 16px 0;
+
+  h4 {
+    margin-bottom: 12px;
+  }
+}
+
+.sizeRow {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+
+  input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  button {
+    padding: 4px 8px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #d32f2f;
+    }
+  }
+}
+
+.addButton {
+  width: 100%;
+  padding: 8px;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 8px;
+
+  &:hover {
+    background-color: #1976D2;
+  }
+}
+
+.errorSection {
+  border-color: #ff4444;
+  
+  > .errorMessage {
+    color: #ff4444;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+}
+
+.textarea {
+  &.errorInput {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.fileInput {
+  &.errorInput {
+    color: #ff4444;
+    ~ .errorMessage {
+      margin-top: 0.25rem;
+    }
+  }
+}
