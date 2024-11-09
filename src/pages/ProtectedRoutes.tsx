@@ -41,6 +41,8 @@ export const ProtectedRoutes = () => {
 				return user.isDIREKTOR || user.isMaster
 			case '/equipment/failures':
 				return user.isDIREKTOR || user.isMaster
+			case '/inventory-report':
+				return user.isDIREKTOR || user.isMenedzerPoZakupkam
 			default:
 				return true
 		}

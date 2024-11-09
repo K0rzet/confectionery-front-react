@@ -18,6 +18,7 @@ import OrderHistory from './orders/OrderHistory'
 import { EquipmentFailures } from './EquipmentFailures/EquipmentFailures'
 import { QualityControlPage } from './QualityControl/QualityControl'
 import { SpecificationPage } from './Specification/Specification'
+import { InventoryReportPage } from './inventory-report/InventoryReportPage'
 
 
 export const router = createBrowserRouter([
@@ -84,6 +85,10 @@ export const router = createBrowserRouter([
 			{
 				path: ADMIN_PAGES.SPECIFICATION_DETAIL,
 				element: <SpecificationPage />
+			},
+			{
+				path: ADMIN_PAGES.INVENTORY_REPORT,
+				element: <InventoryReportPage />
 			}
 		]
 	},

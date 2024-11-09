@@ -1,0 +1,70 @@
+.container {
+  padding: 20px;
+}
+
+.header {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.controls {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.formControl {
+  min-width: 200px;
+}
+
+.printButton {
+  background-color: #1890ff;
+  color: white;
+  
+  &:hover {
+    background-color: #40a9ff;
+  }
+}
+
+.report {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.group {
+  padding: 16px;
+}
+
+.groupHeader {
+  margin-bottom: 16px;
+  color: #1f1f1f;
+}
+
+.totalRow {
+  background-color: #fafafa;
+  font-weight: bold;
+}
+
+.summary {
+  padding: 16px;
+  margin-top: 20px;
+  background-color: #f5f5f5;
+}
+
+@media print {
+  .controls {
+    display: none;
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .group {
+    break-inside: avoid;
+    margin-bottom: 20px;
+  }
+} 

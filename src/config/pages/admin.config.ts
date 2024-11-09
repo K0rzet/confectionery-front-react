@@ -8,4 +8,5 @@ export const ADMIN_PAGES = {
 	QUALITY_CONTROL: '/orders/:zakazId/quality-control',
 	SPECIFICATIONS: '/specifications',
 	SPECIFICATION_DETAIL: '/specifications/:izdelieId',
+	INVENTORY_REPORT: '/inventory-report',
 } as const
