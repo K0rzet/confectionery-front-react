@@ -10,6 +10,7 @@ import {
 } from '@/types/order.types';
 import styles from './OrdersList.module.scss';
 import { Modal } from '../ui/Modal/Modal';
+import CostEstimation from '../CostEstimation/CostEstimation';
 
 interface OrdersListProps {
   orders: IOrder[];
@@ -60,6 +61,10 @@ const OrdersList: FC<OrdersListProps> = ({ orders, refetchOrders }) => {
 
   // Добавляем состояние для ошибок
   const [validationErrors, setValidationErrors] = useState<ValidationErrors>({});
+
+  // Добавляем новое состояние для модального окна оценки затрат
+  const [costEstimationModalOpen, setCostEstimationModalOpen] = useState(false);
+  const [selectedOrderId, setSelectedOrderId] = useState<number | null>(null);
 
   // Загрузка списка заказчиков при открытии модального окна
   useEffect(() => {
@@ -210,6 +215,7 @@ const OrdersList: FC<OrdersListProps> = ({ orders, refetchOrders }) => {
               >
                 Отклонить
               </button>
+              
             </>
           );
         case OrderStatus.SOSTAVLENIE_SPETSIFIKATSII:
@@ -242,6 +248,19 @@ const OrdersList: FC<OrdersListProps> = ({ orders, refetchOrders }) => {
               >
                 Отклонить
               </button>
+              {order.status === OrderStatus.PODTVERZHDENIE && (
+                <div className={styles.actionButtons}>
+                  <button
+                    onClick={() => {
+                      setSelectedOrderId(order.id);
+                      setCostEstimationModalOpen(true);
+                    }}
+                    className={styles.estimationButton}
+                  >
+                    📊 Оценка затрат и сроков
+                  </button>
+                </div>
+              )}
             </>
           );
         case OrderStatus.GOTOV:
@@ -702,6 +721,22 @@ const OrdersList: FC<OrdersListProps> = ({ orders, refetchOrders }) => {
           >
             Создать заказ
           </button>
+        </div>
+      </Modal>
+
+      {/* Модальное окно оценки затрат */}
+      <Modal 
+        isOpen={costEstimationModalOpen} 
+        onClose={() => {
+          setCostEstimationModalOpen(false);
+          setSelectedOrderId(null);
+        }}
+      >
+        <div className={styles.costEstimationModal}>
+          <h3>Оценка затрат и сроков доставки</h3>
+          {selectedOrderId && (
+            <CostEstimation zakazId={selectedOrderId} />
+          )}
         </div>
       </Modal>
     </>

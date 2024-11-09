@@ -6,4 +6,6 @@ export const ADMIN_PAGES = {
 	EQUIPMENT: '/equipment',
 	EQUIPMENT_FAILURES: '/equipment/failures',
 	QUALITY_CONTROL: '/orders/:zakazId/quality-control',
+	SPECIFICATIONS: '/specifications',
+	SPECIFICATION_DETAIL: '/specifications/:izdelieId',
 } as const

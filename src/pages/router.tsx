@@ -17,6 +17,7 @@ import OrdersPage from './Orders'
 import OrderHistory from './orders/OrderHistory'
 import { EquipmentFailures } from './EquipmentFailures/EquipmentFailures'
 import { QualityControlPage } from './QualityControl/QualityControl'
+import { SpecificationPage } from './Specification/Specification'
 
 
 export const router = createBrowserRouter([
@@ -79,6 +80,10 @@ export const router = createBrowserRouter([
 			{
 				path: `${ADMIN_PAGES.QUALITY_CONTROL}`,
 				element: <QualityControlPage />
+			},
+			{
+				path: ADMIN_PAGES.SPECIFICATION_DETAIL,
+				element: <SpecificationPage />
 			}
 		]
 	},

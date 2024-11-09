@@ -16,9 +16,17 @@ export const ProtectedRoutes = () => {
 	}
 
 	const canAccess = (path: string) => {
+		if (path.startsWith('/specifications')) {
+			return user.isDIREKTOR || user.isMaster
+		}
+
 		if (path.startsWith('/orders')) {
 			if (path.includes('/history')) {
 				return user.isDIREKTOR || user.isMENEDZHER_PO_RABOTE_S_KLIENTAMI
+			}
+			
+			if (path.includes('/quality-control')) {
+				return user.isDIREKTOR || user.isMaster
 			}
 			
 			return true
@@ -26,9 +34,9 @@ export const ProtectedRoutes = () => {
 
 		switch (path) {
 			case '/ingredients':
-				return user.isDIREKTOR || user.isMenedzerPoZakupkam || user.isMaster || user.isZakazchik
+				return user.isDIREKTOR || user.isMenedzerPoZakupkam || user.isMaster
 			case '/cake-decorations':
-				return user.isDIREKTOR || user.isMenedzerPoZakupkam || user.isMaster || user.isZakazchik
+				return user.isDIREKTOR || user.isMenedzerPoZakupkam || user.isMaster
 			case '/equipment':
 				return user.isDIREKTOR || user.isMaster
 			case '/equipment/failures':
