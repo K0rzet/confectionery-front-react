@@ -15,4 +15,8 @@ export interface CostEstimationResponseDto {
   ukrasheniya: MaterialNeedDto[]
   obshchayaSebestoimost: number
   minimalnoVremyaDostavki: number
+  minimalnoVremyaProizvodstva: number
+  vremyaFinalnyhOperatsiy: number
+  vremyaOzhidaniyaIngredientov: number
+  obshcheeVremyaVypolneniya: number
 } 

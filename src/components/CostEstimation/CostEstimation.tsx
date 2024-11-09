@@ -2,6 +2,7 @@ import { useEffect, useState, FC } from 'react'
 import { CostEstimationResponseDto, MaterialNeedDto } from '@/types/cost-estimation.types'
 import costEstimationService from '@/services/cost-estimation.service'
 import styles from './CostEstimation.module.scss'
+import { ProductionTimeline } from './ProductionTimeline/ProductionTimeline'
 
 interface CostEstimationProps {
   zakazId: number
@@ -76,14 +77,17 @@ const CostEstimation: FC<CostEstimationProps> = ({ zakazId }) => {
       <MaterialsTable materials={estimation.ingredienty} title="Ингредиенты" />
       <MaterialsTable materials={estimation.ukrasheniya} title="Украшения" />
       
+      <ProductionTimeline 
+        minimalnoVremyaProizvodstva={estimation.minimalnoVremyaProizvodstva}
+        vremyaFinalnyhOperatsiy={estimation.vremyaFinalnyhOperatsiy}
+        vremyaOzhidaniyaIngredientov={estimation.vremyaOzhidaniyaIngredientov}
+        obshcheeVremyaVypolneniya={estimation.obshcheeVremyaVypolneniya}
+      />
+      
       <div className={styles.summary}>
         <div className={styles.summaryItem}>
           <span>Общая себестоимость:</span>
           <strong>{estimation.obshchayaSebestoimost} ₽</strong>
-        </div>
-        <div className={styles.summaryItem}>
-          <span>Минимальное время доставки:</span>
-          <strong>{estimation.minimalnoVremyaDostavki} дней</strong>
         </div>
       </div>
     </div>
