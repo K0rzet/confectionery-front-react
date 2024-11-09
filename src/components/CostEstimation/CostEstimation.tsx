@@ -3,6 +3,8 @@ import { CostEstimationResponseDto, MaterialNeedDto } from '@/types/cost-estimat
 import costEstimationService from '@/services/cost-estimation.service'
 import styles from './CostEstimation.module.scss'
 import { ProductionTimeline } from './ProductionTimeline/ProductionTimeline'
+import { GanttChart } from '../GanttChart/GanttChart'
+import { axiosClassic } from '@/api/axios'
 
 interface CostEstimationProps {
   zakazId: number
@@ -12,9 +14,27 @@ const CostEstimation: FC<CostEstimationProps> = ({ zakazId }) => {
   const [estimation, setEstimation] = useState<CostEstimationResponseDto | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [ganttData, setGanttData] = useState<any>(null)
 
   useEffect(() => {
     loadEstimation()
+  }, [zakazId])
+
+  useEffect(() => {
+    const fetchGanttData = async () => {
+      try {
+        setIsLoading(true)
+        const response = await axiosClassic.get(`/cost-estimation/gantt-chart/${zakazId}`)
+        setGanttData(response.data)
+      } catch (err) {
+        setError('Ошибка при загрузке данных для диаграммы Ганта')
+        console.error(err)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    fetchGanttData()
   }, [zakazId])
 
   const loadEstimation = async () => {
@@ -62,7 +82,7 @@ const CostEstimation: FC<CostEstimationProps> = ({ zakazId }) => {
               </td>
               <td>{material.zakupochnayaTsena} ₽</td>
               <td>{material.sebestoimost} ₽</td>
-              <td>{material.vremyaDostavki} дней</td>
+              <td>{material.vremyaDostavki} часов</td>
             </tr>
           ))}
         </tbody>
@@ -90,6 +110,18 @@ const CostEstimation: FC<CostEstimationProps> = ({ zakazId }) => {
           <strong>{estimation.obshchayaSebestoimost} ₽</strong>
         </div>
       </div>
+      
+      {isLoading && <div className={styles.loading}>Загрузка диаграммы...</div>}
+      {error && <div className={styles.error}>{error}</div>}
+      {ganttData && (
+        <GanttChart
+          equipment={ganttData.equipment}
+          startDate={new Date(ganttData.startDate)}
+          endDate={new Date(ganttData.endDate)}
+          zakazName={ganttData.zakazName || 'Заказ'}
+          izdelieName={ganttData.izdelieName || 'Изделие'}
+        />
+      )}
     </div>
   )
 } 

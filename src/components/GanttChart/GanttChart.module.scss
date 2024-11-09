@@ -1,0 +1,67 @@
+.container {
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.title {
+  h3 {
+    margin: 0 0 8px;
+    color: #1f1f1f;
+    font-size: 1.2em;
+  }
+}
+
+.subtitle {
+  margin: 0;
+  color: #666;
+  font-size: 0.9em;
+}
+
+.printButton {
+  background-color: #1890ff;
+  color: white;
+  
+  &:hover {
+    background-color: #40a9ff;
+  }
+}
+
+.ganttChart {
+  overflow-x: auto;
+  margin-top: 20px;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+}
+
+.canvas {
+  background: #fff;
+  min-width: 100%;
+}
+
+@media print {
+  .container {
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  .header {
+    display: none;
+  }
+
+  .ganttChart {
+    overflow: visible;
+    border: none;
+    margin: 0;
+  }
+} 
