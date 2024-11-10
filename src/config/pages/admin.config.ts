@@ -9,4 +9,5 @@ export const ADMIN_PAGES = {
 	SPECIFICATIONS: '/specifications',
 	SPECIFICATION_DETAIL: '/specifications/:izdelieId',
 	INVENTORY_REPORT: '/inventory-report',
+	PURCHASE_REPORT: '/purchase-report',
 } as const

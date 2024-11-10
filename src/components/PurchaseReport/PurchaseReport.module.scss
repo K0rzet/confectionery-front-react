@@ -1,0 +1,64 @@
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.printButton {
+  background-color: #1890ff;
+  color: white;
+  
+  &:hover {
+    background-color: #40a9ff;
+  }
+}
+
+.tableContainer {
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.instrumentsCell {
+  max-width: 400px;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.totalRow {
+  background-color: #fafafa;
+}
+
+.summary {
+  text-align: right;
+  padding: 16px;
+}
+
+@media print {
+  .container {
+    padding: 0;
+  }
+
+  .header {
+    margin-bottom: 16px;
+  }
+
+  .printButton {
+    display: none;
+  }
+
+  .tableContainer {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+
+  @page {
+    margin: 2cm;
+  }
+} 
