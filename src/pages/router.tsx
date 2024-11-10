@@ -20,6 +20,7 @@ import { QualityControlPage } from './QualityControl/QualityControl'
 import { SpecificationPage } from './Specification/Specification'
 import { InventoryReportPage } from './inventory-report/InventoryReportPage'
 import { PurchaseReportPage } from './purchase-report/PurchaseReportPage'
+import { EquipmentFailuresReportPage } from './equipment-failures/EquipmentFailuresReportPage'
 
 
 export const router = createBrowserRouter([
@@ -94,6 +95,10 @@ export const router = createBrowserRouter([
 			{
 				path: ADMIN_PAGES.PURCHASE_REPORT,
 				element: <PurchaseReportPage />
+			},
+			{
+				path: ADMIN_PAGES.EQUIPMENT_FAILURES_REPORT,
+				element: <EquipmentFailuresReportPage />
 			}
 		]
 	},

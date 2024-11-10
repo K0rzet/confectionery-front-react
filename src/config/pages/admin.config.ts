@@ -10,4 +10,5 @@ export const ADMIN_PAGES = {
 	SPECIFICATION_DETAIL: '/specifications/:izdelieId',
 	INVENTORY_REPORT: '/inventory-report',
 	PURCHASE_REPORT: '/purchase-report',
+	EQUIPMENT_FAILURES_REPORT: '/equipment/failures/report',
 } as const
